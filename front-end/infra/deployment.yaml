@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: next-front
+  namespace: next-front
 spec:
   selector:
     matchLabels:
@@ -18,3 +19,20 @@ spec:
           ports:
             - containerPort: 3000
               name: next-front
+          env:
+            - name: BACKEND_URL
+              value: 'http://node-back.node-back.svc.cluster.local:5000'
+          readinessProbe:
+            initialDelaySeconds: 30
+            timeoutSeconds: 2
+            periodSeconds: 5
+            httpGet:
+              path: /
+              port: 3000
+          livenessProbe:
+            initialDelaySeconds: 45
+            timeoutSeconds: 2
+            periodSeconds: 30
+            httpGet:
+              path: /
+              port: 3000

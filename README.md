@@ -1,5 +1,7 @@
 # mbo_kube_tp
 
+![Nice architecture](./assets/do3-kube-archi.png)
+
 # Frontend
 
 ## Build l'image

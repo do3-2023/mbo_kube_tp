@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-back
+  namespace: node-back
+spec:
+  selector:
+    app: node-back
+  ports:
+    - port: 5000
+      targetPort: 5000
+  type: ClusterIP
