@@ -27,7 +27,11 @@ spec:
             - name: 'PGUSER'
               value: 'postgres'
             - name: 'PGPASSWORD'
-              value: 'CHANGE_ME'
+              valueFrom:
+                secretKeyRef:
+                  optional: false
+                  key: pg_password
+                  name: db-secret
             - name: 'PGHOST'
               value: 'postgres.data.svc.cluster.local'
             - name: 'PGPORT'

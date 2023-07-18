@@ -21,7 +21,7 @@ spec:
               name: next-front
           env:
             - name: BACKEND_URL
-              value: 'http://node-back.node-back.svc.cluster.local:5000'
+              value: 'http://node-back.node-back.svc.cluster.local:5000/now'
           readinessProbe:
             initialDelaySeconds: 30
             timeoutSeconds: 2

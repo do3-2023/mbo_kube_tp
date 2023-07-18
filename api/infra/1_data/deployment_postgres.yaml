@@ -23,9 +23,15 @@ spec:
             - containerPort: 5432
           env:
             - name: PGPASSWORD
-              value: 'CHANGE_ME'
+              valueFrom:
+                secretKeyRef:
+                  key: pg_password
+                  name: db-secret
             - name: POSTGRES_PASSWORD
-              value: 'CHANGE_ME'
+              valueFrom:
+                secretKeyRef:
+                  key: pg_password
+                  name: db-secret
           readinessProbe:
             exec:
               command: ['psql', '-w', '-U', 'postgres', '-d', 'postgres', '-c', 'SELECT 1']

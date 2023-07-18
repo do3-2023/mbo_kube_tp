@@ -4,6 +4,8 @@ const Client = require('pg')
 const app = express()
 const port = 5000
 
+console.dir(process.env, { depth: null });
+
 const client = new Client.Client()
 client.connect().then(() => {
   console.log("Client connected");
