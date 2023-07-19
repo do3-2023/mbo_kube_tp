@@ -34,6 +34,13 @@ Since I'm using k3d in this setup, we're going to manually expose the frontend v
 kubectl port-forward $(kubectl get pods -n next-front | tail -n 1 | cut -d ' ' -f 1) 3000:3000 -n next-front
 ```
 
+Then you can head over to [you browser](http://localhost:3000) to try out the "beautiful" website
+
+### Deleting the cluster
+```bash
+k3d cluster delete main-cluster
+```
+
 
 ![Nice architecture](./assets/do3-kube-archi.png)
 
